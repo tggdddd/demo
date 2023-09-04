@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>skilling</title>
+    <script async src="./js/less.min.js"></script>
+    <!-- 清理样式 -->
+    <link href="./css/clear.css" rel="stylesheet">
+    <!-- bootstrap -->
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <!-- 图标 -->
+    <link href="./css/bootstrap-icons.min.css" rel="stylesheet">
+    <!-- 自定义 -->
+    <link href="./css/index.css" rel="stylesheet">
+
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+</head>
+
+<body>
+<!-- 导航栏 -->
+<header id="navigation">
+    <nav class="navbar navbar-expand-lg navbar-dark text-white bg-black">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="./img/logo.png">
+            </a>
+            <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
+                    class=" navbar-toggler border-0 ms-auto float-end" data-bs-target="#navbarSupportedContent"
+                    data-bs-toggle="collapse" type="button">
+                <img alt="" class="" src="./img/nav.png">
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Shop</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="#">Team</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="#">Events</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="#">Experiance</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="#">Company</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="#">Contact</a>
+                    </li>
+                </ul>
+
+            </div>
+            <div class="right d-flex align-items-center float-end">
+                <!-- 搜索条 -->
+                <div class="search-bar d-flex align-items-center">
+                    <div class="collapse collapse-horizontal" id="search-bar">
+                        <div class="input-wrap">
+                            <input placeholder="Enter your search items" type="search">
+                        </div>
+                    </div>
+                    <a class="icon" data-bs-toggle="collapse" href="#search-bar">
+                        <i class="bi bi-search text-white"></i>
+                    </a>
+                </div>
+                <i class="bi bi-bag"></i>
+                <div class="money">
+                    <span>€0</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+<!-- 轮播 -->
+<div class="carousel slide w-100 h-auto  carousel-fade" data-bs-ride="carousel" id="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active" data-bs-interval="5000">
+            <img alt="..." class="d-block w-100" src="./img/slider1.jpeg">
+        </div>
+        <div class="carousel-item" data-bs-interval="5000">
+            <img alt="..." class="d-block w-100" src="./img/slider2.jpeg">
+        </div>
+    </div>
+    <div class="carousel-indicators">
+        <button aria-current="true" aria-label="Slide 1" class="active" data-bs-slide-to="0" data-bs-target="#carousel"
+                type="button"></button>
+        <button aria-label="Slide 2" data-bs-slide-to="1" data-bs-target="#carousel" type="button"></button>
+    </div>
+    <button class="carousel-control-prev d-sm-none " data-bs-slide="prev" data-bs-target="#carousel" type="button">
+        <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next d-sm-none " data-bs-slide="next" data-bs-target="#carousel" type="button">
+        <span class="carousel-control-next-icon"></span>
+    </button>
+</div>
+<!-- 滑板滚动 -->
+<div id="skillBoardCarousel">
+    <div class="header w-100 text-center">
+        <div class="title fs-1">SNOWBOARDS</div>
+        <div class="sub-title fs-5 mt-2 ">Aliquam erat volutpat. Curabitur ut consequat arcu eget laoreet est</div>
+        <div class="icon mt-2">
+            <i class="bi bi-x fs-1"></i>
+        </div>
+    </div>
+    <div class="skill-board-box w-100 mt-5">
+        <div class="box w-100  d-flex " id="box" size="5">
+            <div class=".box-item d-flex align-items-center justify-content-center flex-shrink-0">
+                <img alt="" src="./img/board1.jpeg">
+            </div>
+            <div class=".box-item d-flex align-items-center justify-content-center flex-shrink-0">
+                <img alt="" src="./img/board2.jpeg">
+            </div>
+            <div class=".box-item d-flex align-items-center justify-content-center flex-shrink-0">
+                <img alt="" src="./img/board3.jpeg">
+            </div>
+            <div class=".box-item d-flex align-items-center justify-content-center flex-shrink-0">
+                <img alt="" src="./img/board4.jpeg">
+            </div>
+            <div class=".box-item d-flex align-items-center justify-content-center flex-shrink-0">
+                <img alt="" src="./img/board5.jpeg">
+            </div>
+        </div>
+        <div class="ctrl">
+            <div class="pre">&lt;</div>
+            <div class="next">&gt;</div>
+        </div>
+    </div>
+    <div class="info mx-auto mt-5 w-100 text-center fs-4">
+        SNOWBOARD EXTREME SERIES
+    </div>
+
+    <script defer>
+        const box = $("#skillBoardCarousel .box")
+        // 计算宽度显示
+        const data = {
+            minWidth: 200,
+            isInit: false
+        };
+
+        function resize() {
+            if (!data.isInit) {
+                data.isInit = true
+                // 克隆列表
+                box.append(box.children().clone())
+                // 轮播控制
+                console.log(box.parent().children(".pre"))
+                box.parent().children(".ctrl").children(".pre").click(() => {
+                    box.animate({
+                        "left": `+=${data.width}`
+                    }, {
+                        duration: 1000,
+                        complete: () => {
+                            box.children().last().insertBefore(box.children().first())
+                            box.css({
+                                "left": `-=${data.width}`
+                            })
+                        }
+                    })
+                })
+                box.parent().children(".ctrl").children(".next").click(() => {
+                    box.animate({
+                        "left": `-=${data.width}`
+                    }, {
+                        duration: 1000,
+                        complete: () => {
+                            box.children().first().insertAfter(box.children().last())
+                            box.css({
+                                "left": `+=${data.width}`
+                            })
+                        }
+                    })
+                })
+            }
+            let size = box.attr("size")
+
+            while (box.width() / size < data.minWidth) {
+                size--;
+            }
+            data.width = box.width() / size;
+            box.children().css({
+                "width": `${data.width}px`
+            })
+            box.css({
+                "left": `-${data.width}px`
+            })
+            if ((size & 1) === 0) {
+                box.css({
+                    "left": `-=${data.width / 2}`
+                })
+            }
+        }
+
+        window.onresize = () => {
+            resize()
+
+        }
+        resize()
+    </script>
+</div>
+<!-- 文章 -->
+<div class=" text-white" id="article">
+    <div class="container-fluid  ">
+        <div class="row">
+            <div class="text-wrap
+            col-12 offset-0
+             col-sm-10 offset-sm-1
+             col-md-7 offset-md-1
+             col-lg-6 offset-lg-2 ">
+                <div class="title">
+                    <p>THE MOUNTAINS</p>
+                    <p>SNOWBOARDING <span>®</span></p>
+                </div>
+                <div class="content">
+                    <div>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tincidunt auctor facilisis. Nam
+                        massa dui, imperdiet et mi ut, sagittis viverra odio. Duis et lectus eu enim gravida vulputate
+                        nec eget nisi. Nunc ultrices velit blandit, dapibus lacus in, feugiat erat. Donec non porttitor
+                        augue, sit amet lacinia purus. Nulla fringilla quam est, luctus dapibus odio suscipit ut.
+                        Vivamus et lectus a nunc fringilla volutpat. Morbi sed congue sem.
+                    </div>
+                    <div>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tincidunt auctor facilisis. Nam
+                        massa dui, imperdiet et mi ut, sagittis viverra odio. Duis et lectus eu enim gravida vulputate
+                        nec eget nisi. Nunc ultrices velit blandit, dapibus lacus in, feugiat erat. Donec non porttitor
+                        augue, sit amet lacinia purus. Nulla fringilla quam est, luctus dapibus odio suscipit ut.
+                        Vivamus et lectus a nunc fringilla volutpat. Morbi sed congue sem.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- FEATURE -->
+<div class="" id="feature">
+    <div class="container-fluid ">
+        <div class="header w-100 text-center">
+            <div class="title fs-1">FEATURES</div>
+            <div class="icon mt-2">
+                <i class="bi bi-x fs-1"></i>
+            </div>
+        </div>
+        <div class="box row  justify-content-center
+        	row-cols-2
+        	row-cols-sm-2
+        	row-cols-md-4
+        	row-cols-lg-6
+        	row-cols-xl-6">
+            <div class="item  col-10 col-md-10">
+                <div class="wrap">
+                    <img alt="" class="w-100 h-auto object-fit-cover" src="./img/pic1.jpeg">
+                    <div class="item-title fs-6 mt-3">
+                        Born Identity: Bringing Burton Hardwoods to Life
+                    </div>
+                </div>
+            </div>
+            <div class="item  col-10 col-md-10 ">
+                <div class="wrap">
+                    <img alt="" class="w-100 h-auto object-fit-cover" src="./img/pic2.jpeg">
+                    <div class="item-title fs-6 mt-3">
+                        Jeremy Jones: On That Street Grind
+                    </div>
+                </div>
+            </div>
+            <div class="item  col-10 col-md-10 ">
+                <div class="wrap">
+                    <img alt="" class="w-100 h-auto object-fit-cover" src="./img/pic3.jpeg">
+                    <div class="item-title fs-6 mt-3">
+                        Burton’s Tokyo Rail Days Recap
+                    </div>
+                </div>
+            </div>
+            <div class="item  col-10 col-md-10">
+                <div class="wrap">
+                    <img alt="" class="w-100 h-auto object-fit-cover" src="./img/pic4.jpeg">
+                    <div class="item-title fs-6 mt-3">
+                        Burton’s Tokyo Rail Days Preview
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- footer -->
+<div class="bg-black " id="footer">
+    <div class=" container    text-white ">
+        <div class="row row-cols-1 row-cols-sm-3 row-cols-md-3 row-cols-lg-4">
+            <div class="item col">
+                <div class="title">
+                    PRODUCTS
+                </div>
+                <div class="content d-flex  flex-column">
+                    <a class="text-decoration-none text-white-50 " href="">Mens</a>
+                    <a class="text-decoration-none text-white-50" href="">Women's</a>
+                    <a class="text-decoration-none text-white-50" href="">Youth</a>
+                </div>
+            </div>
+            <div class="item col">
+                <div class="title">
+                    ABOUT
+                </div>
+                <div class="content d-flex  flex-column">
+                    <a class="text-decoration-none text-white-50 " href="">Careers and internships</a>
+                    <a class="text-decoration-none text-white-50" href="">Sponsorships</a><a
+                        class="text-decoration-none text-white-50"
+                        href="">team</a>
+                    <a class="text-decoration-none text-white-50" href="">Catalog Request/Download</a>
+                </div>
+            </div>
+            <div class="item col">
+                <div class="title">
+                    CUSTOMER SUPPORT
+                </div>
+                <div class="content d-flex  flex-column">
+                    <a class="text-decoration-none text-white-50 " href="">Contact Us</a>
+                    <a class="text-decoration-none text-white-50" href="">Shipping and Order Tracking</a>
+                    <a class="text-decoration-none text-white-50" href="">Easy Returns</a>
+                    <a class="text-decoration-none text-white-50" href="">Warranty</a>
+                    <a class="text-decoration-none text-white-50" href="">Replacement Binding Parts</a>
+                </div>
+            </div>
+            <div class="item col">
+                <div class="title">
+                    NEWSLETTER
+                </div>
+                <div class="e-mail d-flex">
+                    <input class="flex-grow-1" placeholder="Enter your email" type="email"/>
+                    <div class="pointer-event text-center text-black btn flex-grow-1">Go</div>
+                </div>
+                <div class="icons d-flex justify-content-between">
+                    <a href="#">
+                        <div class="icon-facebook"></div>
+                    </a>
+                    <a href="#">
+                        <div class="icon-twitter"></div>
+                    </a>
+                    <a href="#">
+                        <div class="icon-instagram"></div>
+                    </a>
+                    <a href="#">
+                        <div class="icon-pinterest"></div>
+                    </a>
+                    <a href="#">
+                        <div class="icon-youtube"></div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright d-flex w-100 justify-content-between ">
+            <div>© 2014 Mountains Snowboards</div>
+            <div class="language-wrap position-relative d-flex ">
+                <input class="d-none" id="language" type="checkbox"/>
+                <div class="icons-wrap d-flex flex-column ">
+                    <label class="active" for="language" onclick="changeLanguage(this)">
+                        <img alt="" class="" src="./img/us.png">
+                    </label>
+                    <label for="language" onclick="changeLanguage(this)">
+                        <img alt="" src="./img/nz.png">
+                    </label>
+                    <label for="language" onclick="changeLanguage(this)">
+                        <img alt="" class="" src="./img/pk.png">
+                    </label>
+                    <label for="language" onclick="changeLanguage(this)">
+                        <img alt="" class="" src="./img/srl.png">
+                    </label>
+                    <label for="language" onclick="changeLanguage(this)">
+                        <img alt="" class="" src="./img/uk.png">
+                    </label>
+                    <label for="language" onclick="changeLanguage(this)">
+                        <img alt="" class="" src="./img/as.png">
+                    </label>
+                </div>
+                <label for="language">Change Region</label>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</body>
+<script>
+    function changeLanguage(e) {
+        if ($("#language:checked").length==0) {
+            return false;
+        }
+        console.log(1)
+        $(e).parent().children().removeClass("active")
+        $(e).addClass("active")
+    }
+</script>
+</html>

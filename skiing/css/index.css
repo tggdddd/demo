@@ -1,0 +1,302 @@
+#navigation .navbar {
+  background-color: black;
+}
+#navigation .navbar .navbar-nav .nav-item {
+  padding: 2px 8px;
+  margin: 0 4px;
+  font-weight: 600;
+}
+#navigation .navbar .navbar-nav .nav-item:hover {
+  background: white;
+}
+#navigation .navbar .navbar-nav .nav-item:hover a {
+  color: black;
+}
+#navigation .navbar .navbar-nav .nav-item a {
+  color: white;
+  font-size: 12px;
+  line-height: 1em;
+}
+#navigation .right > *:nth-child(n+1) {
+  margin-left: 6px;
+}
+#navigation .right .search-bar {
+  margin-right: 12px;
+  position: relative;
+  align-items: center;
+}
+#navigation .right .search-bar .input-wrap {
+  height: 32px;
+  background: #aaa;
+  padding: 0 24px;
+  width: 25vw;
+  min-width: 200px;
+}
+#navigation .right .search-bar .input-wrap input {
+  background: transparent;
+  outline: none;
+  border: none;
+  line-height: 1em;
+  height: 1em;
+  font-size: 13px;
+}
+#navigation .right .search-bar .icon {
+  position: absolute;
+  right: 4px;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+#navigation .right .money {
+  font-size: 12px;
+  transform: translateY(2px);
+}
+@media screen and (max-width: 991px) {
+  #navigation .right {
+    position: absolute;
+    right: 20%;
+  }
+}
+
+#carousel > button span {
+  width: 10em;
+  height: 10em;
+}
+#carousel .carousel-item {
+  transition-duration: 1s;
+}
+#carousel .carousel-indicators {
+  left: unset;
+  margin-right: 8%;
+}
+#carousel .carousel-indicators .active {
+  position: relative;
+}
+#carousel .carousel-indicators .active::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  left: 0;
+  top: 0;
+  width: 0;
+  background-color: aqua;
+  border-radius: 2px;
+  animation: indicators-progress 5000ms linear both;
+}
+@keyframes indicators-progress {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+#carousel:hover > button {
+  display: flex !important;
+}
+#carousel:hover .carousel-indicators .active::before {
+  animation-play-state: paused;
+}
+
+#skillBoardCarousel {
+  padding: 10vw 0 10vw;
+}
+#skillBoardCarousel .header .sub-title {
+  word-break: break-word;
+}
+#skillBoardCarousel .header .icon {
+  scale: 1.4;
+  width: fit-content;
+  margin: 0 auto;
+}
+#skillBoardCarousel .skill-board-box {
+  position: relative;
+  width: 100%;
+  overflow-x: hidden;
+  height: auto;
+}
+#skillBoardCarousel .skill-board-box .box {
+  width: 100%;
+  overflow-x: visible;
+  position: relative;
+}
+#skillBoardCarousel .skill-board-box .box .box-item img {
+  object-fit: cover;
+}
+#skillBoardCarousel .skill-board-box .box .box-item img:not(:first-child) {
+  margin-left: 5%;
+}
+#skillBoardCarousel .skill-board-box .ctrl {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  display: flex;
+  align-items: center;
+  padding: 24px;
+  justify-content: space-between;
+}
+#skillBoardCarousel .skill-board-box .ctrl .pre,
+#skillBoardCarousel .skill-board-box .ctrl .next {
+  color: rgba(102, 102, 102, 0.6);
+  font-size: 20vw;
+  font-weight: 100;
+  pointer-events: unset;
+  user-select: none;
+  height: 1em;
+  line-height: 1em;
+  text-align: center;
+  filter: blur(1px);
+}
+#skillBoardCarousel .skill-board-box .ctrl .pre {
+  left: 5%;
+}
+#skillBoardCarousel .skill-board-box .ctrl .next {
+  right: 5%;
+}
+#skillBoardCarousel .info {
+  font-weight: 600;
+}
+
+#article {
+  position: relative;
+  background-image: url("../img/bg_image.jpg");
+  background-position: center top;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: fit-content;
+  padding: 10vw 0;
+}
+#article .text-wrap {
+  text-align: start;
+  font-size: 3vw;
+}
+#article .text-wrap .title span {
+  font-size: 0.25em;
+  line-height: 4em;
+  height: 4em;
+  display: inline-table;
+  vertical-align: top;
+}
+#article .text-wrap .content {
+  word-break: break-word;
+  margin-top: 3.5em;
+  font-size: 0.35em;
+  line-height: 3.5em;
+}
+#article .text-wrap .content div:not(:first-child) {
+  margin-top: 2em;
+}
+
+#feature {
+  padding: 3vw 0;
+  margin: 3vw 0;
+}
+#feature .header .icon {
+  scale: 1.4;
+  width: fit-content;
+  margin: 0 auto;
+}
+#feature .box {
+  margin-top: 2vw;
+}
+@media screen and (max-width: 992px) {
+  #feature .box .item {
+    position: relative;
+    padding: 12px;
+  }
+  #feature .box .item .item-title {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.6);
+    padding: 1em;
+    font-size: calc(5px + 2vw) !important;
+    width: 80%;
+    height: auto;
+  }
+}
+
+#footer .container {
+  padding: calc(5vw + 10px) 12px;
+}
+#footer .container .item .title {
+  margin: 1em 0;
+  font-weight: 700;
+}
+#footer .container .item .content {
+  gap: 1em;
+}
+#footer .container .item .e-mail input {
+  outline: none !important;
+  border: none !important;
+  padding-left: 1em;
+}
+#footer .container .item .e-mail .btn {
+  background: #C7C7C7;
+  border-radius: 0;
+}
+#footer .container .item .e-mail .btn:hover {
+  background-color: #222;
+}
+#footer .container .item .icons {
+  margin-top: calc(3vw + 8px);
+}
+#footer .container .item .icons a:not(:last-child) {
+  margin-right: 20px;
+}
+#footer .container .copyright {
+  margin-top: calc(1vw + 12px);
+}
+#footer .container .copyright .language-wrap .icons-wrap {
+  position: relative;
+  min-height: 25px;
+  min-width: 25px;
+}
+#footer .container .copyright .language-wrap .icons-wrap label {
+  position: absolute;
+}
+#footer .container .copyright .language-wrap .icons-wrap label.active {
+  z-index: 3;
+}
+#footer .container .copyright .language-wrap input:checked ~ .icons-wrap label {
+  position: relative;
+}
+
+.icon-facebook {
+  height: 25px;
+  width: 25px;
+  display: block;
+  background: url(../img/img-sprite.png) no-repeat -256px -276px;
+}
+
+.icon-twitter {
+  height: 25px;
+  width: 25px;
+  display: block;
+  background: url(../img/img-sprite.png) no-repeat -298px -276px;
+}
+
+.icon-instagram {
+  height: 25px;
+  width: 25px;
+  display: block;
+  background: url(../img/img-sprite.png) no-repeat -346px -276px;
+}
+
+.icon-pinterest {
+  height: 25px;
+  width: 25px;
+  display: block;
+  background: url(../img/img-sprite.png) no-repeat -391px -276px;
+}
+
+.icon-youtube {
+  height: 25px;
+  width: 47px;
+  display: block;
+  background: url(../img/img-sprite.png) no-repeat -437px -276px;
+}
+
+/*# sourceMappingURL=index.css.map */

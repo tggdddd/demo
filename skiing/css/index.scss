@@ -1,0 +1,397 @@
+// 导航
+#navigation {
+  .navbar {
+    background-color: black;
+
+    .navbar-nav {
+      .nav-item {
+        padding: 2px 8px;
+        margin: 0 4px;
+		font-weight: 600;
+        &:hover {
+          background: white;
+
+          a {
+            color: black;
+          }
+        }
+
+        a {
+          color: white;
+          font-size: 12px;
+          line-height: 1em;
+        }
+      }
+    }
+  }
+
+  .right {
+    & > *:nth-child(n+1) {
+      margin-left: 6px;
+    }
+
+    .search-bar {
+      margin-right: 12px;
+      position: relative;
+      align-items: center;
+
+      .input-wrap {
+        height: 32px;
+        background: #aaa;
+        padding: 0 24px;
+        width: 25vw;
+        min-width: 200px;
+
+        input {
+          background: transparent;
+          outline: none;
+          border: none;
+          line-height: 1em;
+          height: 1em;
+          font-size: 13px;
+        }
+      }
+
+      .icon {
+        position: absolute;
+        right: 4px;
+        top: 50%;
+        transform: translate(0, -50%);
+      }
+    }
+
+    .money {
+      font-size: 12px;
+      transform: translateY(2px);
+    }
+  }
+
+  @media screen and (max-width: 991px) {
+    .right {
+      position: absolute;
+      right: 20%;
+    }
+  }
+}
+
+// 轮播
+#carousel {
+  & > button {
+    span {
+      width: 10em;
+      height: 10em;
+    }
+  }
+
+  .carousel-item {
+    transition-duration: 1s;
+  }
+
+  .carousel-indicators {
+    left: unset;
+
+    margin-right: 8%;
+
+    .active {
+      position: relative;
+
+      &::before {
+        content: "";
+        position: absolute;
+        height: 100%;
+        left: 0;
+        top: 0;
+        width: 0;
+        background-color: aqua;
+        border-radius: 2px;
+        animation: indicators-progress 5000ms linear both;
+
+        @keyframes indicators-progress {
+          from {
+            width: 0;
+          }
+
+          to {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  &:hover {
+    > button {
+      display: flex !important;
+
+    }
+
+    .carousel-indicators {
+      .active::before {
+        animation-play-state: paused;
+      }
+    }
+  }
+}
+
+// 滑板轮播
+#skillBoardCarousel {
+  padding: 10vw 0 10vw;
+
+  .header {
+    .title {
+    }
+
+    .sub-title {
+      word-break: break-word;
+    }
+
+    .icon {
+      scale: 1.4;
+      width: fit-content;
+      margin: 0 auto;
+    }
+  }
+
+  .skill-board-box {
+    position: relative;
+    width: 100%;
+    overflow-x: hidden;
+    height: auto;
+
+    .box {
+      width: 100%;
+      overflow-x: visible;
+      position: relative;
+
+      .box-item {
+
+        img {
+          object-fit: cover;
+        }
+
+        img:not(:first-child) {
+          margin-left: 5%;
+        }
+      }
+    }
+
+    .ctrl {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      display: flex;
+      align-items: center;
+      padding: 24px;
+      justify-content: space-between;
+
+      .pre,
+      .next {
+        color: rgba(102, 102, 102, 0.6);
+        font-size: 20vw;
+        font-weight: 100;
+        pointer-events: unset;
+        user-select: none;
+        height: 1em;
+        line-height: 1em;
+        text-align: center;
+        filter: blur(1px);
+      }
+
+      .pre {
+        left: 5%;
+      }
+
+      .next {
+        right: 5%;
+      }
+    }
+  }
+  .info{
+    font-weight:  600;
+  }
+}
+
+// 文章
+#article {
+  position: relative;
+  background-image: url("../img/bg_image.jpg");
+  background-position: center top;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: fit-content;
+  padding: 10vw 0;
+
+  .text-wrap {
+    text-align: start;
+    font-size: 3vw;
+
+    .title {
+
+      span {
+        font-size: .25em;
+        line-height: 4em;
+        height: 4em;
+        display: inline-table;
+        vertical-align: top;
+      }
+    }
+
+    .content {
+      word-break: break-word;
+      margin-top: 3.5em;
+      font-size: 0.35em;
+      line-height: 3.5em;
+
+      div:not(:first-child) {
+        margin-top: 2em;
+      }
+    }
+  }
+}
+
+// feature
+#feature {
+  padding: 3vw 0;
+  margin: 3vw 0;
+
+  .header {
+    .title {
+    }
+
+    .sub-title {
+    }
+
+    .icon {
+      scale: 1.4;
+      width: fit-content;
+      margin: 0 auto;
+    }
+  }
+
+  .box {
+    margin-top: 2vw;
+
+    .item {
+      @media screen and (max-width: 992px) {
+        position: relative;
+        padding: 12px;
+        .item-title {
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+          background: rgba(255, 255, 255, 0.6);
+          padding: 1em;
+          font-size: calc(5px + 2vw) !important;
+          width: 80%;
+          height: auto;
+        }
+      }
+    }
+  }
+}
+
+#footer {
+  .container {
+    padding: calc(5vw + 10px) 12px;
+
+    .item {
+      .title {
+        margin: 1em 0;
+        font-weight: 700;
+      }
+
+      .content {
+        gap: 1em;
+      }
+
+      .e-mail {
+        input {
+          outline: none !important;
+          border: none !important;
+          padding-left: 1em;
+        }
+
+        .btn {
+          background: #C7C7C7;
+          border-radius: 0;
+
+          &:hover {
+            background-color: #222;
+          }
+        }
+      }
+
+      .icons {
+        margin-top: calc(3vw + 8px);
+
+        a:not(:last-child) {
+          margin-right: 20px;
+        }
+      }
+    }
+
+    .copyright {
+		margin-top: calc(1vw + 12px);
+      .language-wrap {
+        .icons-wrap {
+          position: relative;
+          min-height: 25px;
+          min-width: 25px;
+
+          label {
+            position: absolute;
+
+            &.active {
+              z-index: 3;
+            }
+          }
+
+        }
+
+        input:checked {
+          & ~ .icons-wrap label {
+            position: relative;
+          }
+        }
+      }
+    }
+  }
+}
+
+.icon-facebook {
+  height: 25px;
+  width: 25px;
+  display: block;
+  background: url(../img/img-sprite.png) no-repeat -256px -276px;
+}
+
+.icon-twitter {
+  height: 25px;
+  width: 25px;
+  display: block;
+  background: url(../img/img-sprite.png) no-repeat -298px -276px;
+}
+
+.icon-instagram {
+  height: 25px;
+  width: 25px;
+  display: block;
+  background: url(../img/img-sprite.png) no-repeat -346px -276px;
+}
+
+.icon-pinterest {
+  height: 25px;
+  width: 25px;
+  display: block;
+  background: url(../img/img-sprite.png) no-repeat -391px -276px;
+}
+
+.icon-youtube {
+  height: 25px;
+  width: 47px;
+  display: block;
+  background: url(../img/img-sprite.png) no-repeat -437px -276px;
+}
